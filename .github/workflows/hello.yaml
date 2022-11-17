@@ -22,3 +22,6 @@ jobs:
           cd pages
           ls -la
           git status
+          git add .
+          git commit -m"commit by github actions"
+          git push origin main
