@@ -30,7 +30,7 @@ jobs:
         run: |
           git clone git@github.com:kengo-k/kengo-k.github.io.git
           echo ">>> copy build result to github pages..."
-          cp -r blog-builder/docs/.vuepress/dist/* kengo-k.github.io/
+          cp -r kengo-k.github.io-builder/docs/.vuepress/dist/* kengo-k.github.io/
           cd kengo-k.github.io
           git config --global user.email "kurobanekengo@gmail.com"
           git config --global user.name "kengo-k"
