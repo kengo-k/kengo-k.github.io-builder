@@ -18,7 +18,7 @@ jobs:
       - name: deploy site
         run: |
           git clone https://github.com/kengo-k/pages
-          cp -r blog-builder/.vuepress/dist/* pages/
+          cp -r blog-builder/docs/.vuepress/dist/* pages/
           cd pages
           ls -la
           git status
