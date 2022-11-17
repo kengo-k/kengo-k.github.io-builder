@@ -24,6 +24,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
+          pwd
+          echo ~
           ls -la
           echo ">>> clone pages repository..."
           GIT_SSH_COMMAND="ssh -i ~/id_rsa -o StrictHostKeyChecking=no -F /dev/null" git clone git@github.com:kengo-k/pages.git
