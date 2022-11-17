@@ -1,37 +1,36 @@
 name: deploy
 on:
   push:
-
+    branches:
+      - main
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
     container:
       image: node:14.20.1-bullseye
     steps:
+      # secretsから読みだした秘密鍵を設置する
       - name: setup deploy key
         env:
           DEPLOY_SECRETS_KEY: ${{ secrets.DEPLOY_SECRETS_KEY }}
         run: |
           echo "$DEPLOY_SECRETS_KEY" > ~/id_rsa
           chmod 600 ~/id_rsa
+      # ブログコンテンツのリポジトリをcloneしてビルド
       - name: build site
         run: |
           git clone https://github.com/kengo-k/blog-builder.git
           cd blog-builder
           yarn
           yarn build
+      # github-pagesにデプロイする
       - name: deploy site
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIT_SSH_COMMAND: "ssh -i ~/id_rsa -o StrictHostKeyChecking=no -F /dev/null"
         run: |
-          pwd
-          echo ~
-          ls -la
-          echo ">>> clone pages repository..."
-          GIT_SSH_COMMAND="ssh -i ~/id_rsa -o StrictHostKeyChecking=no -F /dev/null" git clone git@github.com:kengo-k/pages.git
+          git clone git@github.com:kengo-k/pages.git
           echo ">>> copy build result to pages..."
           cp -r blog-builder/docs/.vuepress/dist/* pages/
-          ls -la
           cd pages
           git config --global user.email "kurobanekengo@gmail.com"
           git config --global user.name "kengo-k"
@@ -39,4 +38,4 @@ jobs:
           git add .
           git commit -m"auto commit by github actions"
           echo ">>> push and deploy..."
-          GIT_SSH_COMMAND="ssh -i ~/id_rsa -o StrictHostKeyChecking=no -F /dev/null" git push origin main
+          git push -f origin main
