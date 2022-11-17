@@ -8,26 +8,23 @@ jobs:
     container:
       image: node:14.20.1-bullseye
     steps:
+      - name: setup deploy key
+        env:
+          DEPLOY_SECRETS_KEY: ${{ secrets.DEPLOY_SECRETS_KEY }}
+        run: |
+          echo "$DEPLOY_SECRETS_KEY" > id_rsa
+          chmod 600 id_rsa
+          ls -la
       - name: build site
         run: |
           git clone https://github.com/kengo-k/blog-builder.git
           cd blog-builder
           yarn
           yarn build
-          ls -la
       - name: deploy site
-        env:
-          DEPLOY_SECRETS_KEY: ${{ secrets.DEPLOY_SECRETS_KEY }}
-          GIT_SSH_COMMAND: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -F /dev/null
         run: |
-          mkdir .ssh
-          cd .ssh
           ls -la
-          echo "$DEPLOY_SECRETS_KEY" > id_rsa
-          chmod 600 id_rsa
-          ls -la
-          cd
-          git clone git@github.com:kengo-k/pages.git
+          GIT_SSH_COMMAND="ssh -i ./id_rsa -o StrictHostKeyChecking=no -F /dev/null" git clone git@github.com:kengo-k/pages.git
           # git clone https://github.com/kengo-k/pages
           # cp -r blog-builder/docs/.vuepress/dist/* pages/
           # cd pages
