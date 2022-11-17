@@ -18,6 +18,7 @@ jobs:
       - name: deploy site
         env:
           DEPLOY_SECRETS_KEY: ${{ secrets.DEPLOY_SECRETS_KEY }}
+          GIT_SSH_COMMAND: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -F /dev/null
         run: |
           mkdir .ssh
           cd .ssh
@@ -25,6 +26,7 @@ jobs:
           echo "$DEPLOY_SECRETS_KEY" > id_rsa
           chmod 600 id_rsa
           ls -la
+          cd
           git clone git@github.com:kengo-k/pages.git
           # git clone https://github.com/kengo-k/pages
           # cp -r blog-builder/docs/.vuepress/dist/* pages/
