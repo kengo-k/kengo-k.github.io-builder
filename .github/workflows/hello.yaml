@@ -22,7 +22,7 @@ jobs:
           cd pages
           ls -la
           git status
-          env
+          echo ${{ secrets.GIT_EMAIL }}
           # git config --global user.email "kurobane"
           # git config --global user.name "Your Name"
           # git add .
