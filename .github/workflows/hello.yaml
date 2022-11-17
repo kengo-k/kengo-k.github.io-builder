@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show hello
-        run: echo "Hello,World!"
+        run: |
+          echo `pwd`
+          echo `whoami`
