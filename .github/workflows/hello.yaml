@@ -6,7 +6,7 @@ jobs:
   container-test-job:
     runs-on: ubuntu-latest
     container:
-      image: node:19.1.0-bullseye
+      image: node:14.20.1-bullseye
     steps:
       - name: build site
         run: |
