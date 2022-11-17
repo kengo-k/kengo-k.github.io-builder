@@ -12,8 +12,8 @@ jobs:
         env:
           DEPLOY_SECRETS_KEY: ${{ secrets.DEPLOY_SECRETS_KEY }}
         run: |
-          echo "$DEPLOY_SECRETS_KEY" > id_rsa
-          chmod 600 id_rsa
+          echo "$DEPLOY_SECRETS_KEY" > ~/id_rsa
+          chmod 600 ~/id_rsa
       - name: build site
         run: |
           git clone https://github.com/kengo-k/blog-builder.git
