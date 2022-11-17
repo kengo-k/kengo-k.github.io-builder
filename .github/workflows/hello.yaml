@@ -21,10 +21,8 @@ jobs:
           cp -r blog-builder/docs/.vuepress/dist/* pages/
           cd pages
           ls -la
-          git status
-          echo
-          git config --global user.email "${{ secrets.GIT_EMAIL }}"
-          git config --global user.name "github-actions"
+          git config --global user.email "kurobanekengo@gmail.com"
+          git config --global user.name "kengo-k"
           git add .
           git commit -m"auto commit by github actions"
           git push origin main
