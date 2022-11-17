@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  container-test-job:
+  deploy-gethub-pages:
     runs-on: ubuntu-latest
     container:
       image: node:14.20.1-bullseye
@@ -19,8 +19,8 @@ jobs:
       # ブログコンテンツのリポジトリをcloneしてビルド
       - name: build site
         run: |
-          git clone https://github.com/kengo-k/blog-builder.git
-          cd blog-builder
+          git clone https://github.com/kengo-k/kengo-k.github.io-builder.git
+          cd kengo-k.github.io-builder
           yarn
           yarn build
       # github-pagesにデプロイする
@@ -28,14 +28,14 @@ jobs:
         env:
           GIT_SSH_COMMAND: "ssh -i ~/id_rsa -o StrictHostKeyChecking=no -F /dev/null"
         run: |
-          git clone git@github.com:kengo-k/pages.git
-          echo ">>> copy build result to pages..."
-          cp -r blog-builder/docs/.vuepress/dist/* pages/
-          cd pages
+          git clone git@github.com:kengo-k/kengo-k.github.io.git
+          echo ">>> copy build result to github pages..."
+          cp -r blog-builder/docs/.vuepress/dist/* kengo-k.github.io/
+          cd kengo-k.github.io
           git config --global user.email "kurobanekengo@gmail.com"
           git config --global user.name "kengo-k"
           echo ">>> commit new files"
           git add .
           git commit -m"auto commit by github actions"
           echo ">>> push and deploy..."
-          git push -f origin main
+          git push origin main
