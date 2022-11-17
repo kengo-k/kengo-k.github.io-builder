@@ -1,0 +1,10 @@
+name: Container job sample
+on:
+  push:
+
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: show hello
+        run: echo "Hello,World!"
