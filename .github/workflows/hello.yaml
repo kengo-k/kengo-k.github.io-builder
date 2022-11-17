@@ -20,9 +20,12 @@ jobs:
           DEPLOY_SECRETS_KEY: ${{ secrets.DEPLOY_SECRETS_KEY }}
         run: |
           mkdir .ssh
-          echo "$DEPLOY_SECRETS_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          git clone git@github.com:kengo-k/pages.git
+          cd .ssh
+          ls -la
+          echo "$DEPLOY_SECRETS_KEY" > id_rsa
+          chmod 600 id_rsa
+          ls -la
+          #git clone git@github.com:kengo-k/pages.git
           # git clone https://github.com/kengo-k/pages
           # cp -r blog-builder/docs/.vuepress/dist/* pages/
           # cd pages
