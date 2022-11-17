@@ -21,6 +21,8 @@ jobs:
           yarn
           yarn build
       - name: deploy site
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           ls -la
           echo ">>> clone pages repository..."
@@ -35,4 +37,4 @@ jobs:
           git add .
           git commit -m"auto commit by github actions"
           echo ">>> push and deploy..."
-          git push origin main
+          GIT_SSH_COMMAND="ssh -i ./id_rsa -o StrictHostKeyChecking=no -F /dev/null" git push origin main
