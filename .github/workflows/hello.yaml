@@ -23,11 +23,16 @@ jobs:
       - name: deploy site
         run: |
           ls -la
+          echo ">>> clone pages repository..."
           GIT_SSH_COMMAND="ssh -i ./id_rsa -o StrictHostKeyChecking=no -F /dev/null" git clone git@github.com:kengo-k/pages.git
+          echo ">>> copy build result to pages..."
           cp -r blog-builder/docs/.vuepress/dist/* pages/
+          ls -la
           cd pages
           git config --global user.email "kurobanekengo@gmail.com"
           git config --global user.name "kengo-k"
+          echo ">>> commit new files"
           git add .
           git commit -m"auto commit by github actions"
+          echo ">>> push and deploy..."
           git push origin main
