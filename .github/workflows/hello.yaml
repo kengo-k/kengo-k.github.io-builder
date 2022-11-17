@@ -1,4 +1,4 @@
-name: Container job sample
+name: deploy
 on:
   push:
 
@@ -8,8 +8,13 @@ jobs:
     container:
       image: node:19.1.0-bullseye
     steps:
-      - name: show hello
+      - name: build site
         run: |
-          which node
-          which yarn
-          which git
+          git clone https://github.com/kengo-k/blog-builder.git
+          cd blog-builder
+          yarn
+          yarn build
+          ls -la
+      - name: deploy site
+        run: |
+          ls -la
