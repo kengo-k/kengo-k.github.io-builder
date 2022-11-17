@@ -5,8 +5,11 @@ on:
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
+    container:
+      image: node:19.1.0-bullseye
     steps:
       - name: show hello
         run: |
-          echo `pwd`
-          echo `whoami`
+          which node
+          which yarn
+          which git
