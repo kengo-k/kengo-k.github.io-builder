@@ -28,14 +28,19 @@ jobs:
         env:
           GIT_SSH_COMMAND: "ssh -i ~/id_rsa -o StrictHostKeyChecking=no -F /dev/null"
         run: |
-          git clone git@github.com:kengo-k/kengo-k.github.io.git
+          mkdir kengo-k.github.io
+          cd kengo-k.github.io
+          git init
+          cd ..
+          #git clone git@github.com:kengo-k/kengo-k.github.io.git
           echo ">>> copy build result to github pages..."
           cp -r kengo-k.github.io-builder/docs/.vuepress/dist/* kengo-k.github.io/
           cd kengo-k.github.io
           git config --global user.email "kurobanekengo@gmail.com"
           git config --global user.name "kengo-k"
+          git remote add origin git@github.com:kengo-k/kengo-k.github.io.git
           echo ">>> commit new files"
           git add .
           git commit -m"auto commit by github actions"
           echo ">>> push and deploy..."
-          git push origin main
+          git push -f origin main
