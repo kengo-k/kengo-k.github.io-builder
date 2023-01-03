@@ -3,6 +3,7 @@
     This is a Layout!
     <GlobalComponent name="My Component" />
     <HelloComponent name="My Component" />
+    <Content />
   </div>
 </template>
 
