@@ -4,6 +4,9 @@
 
 <script>
 export default {
+  mounted() {
+    console.log(this.$site);
+  },
   props: {
     name: String
   }
