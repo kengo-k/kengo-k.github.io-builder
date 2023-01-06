@@ -1,18 +1,25 @@
 const path = require('path')
 
 module.exports = (options, context) => {
-  console.log('AAAAAAAAAAvbbb')
-  //console.log(context.themeAPI)
   return {
     name: 'my-plugin',
-    async additionalPages() {
-      //console.log(context)
-      //console.log(context.pages)
-      //return [{ path: '/posts/', filePath: path.resolve(__dirname, 'Foo.md') }]
-      return []
+    async ready() {
+      const pages = [
+        {
+          permalink: '/neko',
+          frontmatter: {
+            layout: 'IndexLayout',
+            title: 'test',
+          },
+          meta: {
+            pid: 'post',
+            id: 'post',
+          },
+        },
+      ]
+      await Promise.all(pages.map(async (page) => context.addPage(page)))
     },
     async clientDynamicModules() {
-      console.log('clientDynamicModules')
       const pages = context.pages
       const tagMap = {}
       pages.forEach((p) => {
@@ -27,7 +34,6 @@ module.exports = (options, context) => {
           }
         }
       })
-      console.log(tagMap)
       return [
         {
           name: `tags.js`,
@@ -35,5 +41,7 @@ module.exports = (options, context) => {
         },
       ]
     },
+
+    enhanceAppFiles: [path.resolve(__dirname, './generate.js')],
   }
 }
