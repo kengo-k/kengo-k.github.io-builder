@@ -34,10 +34,16 @@ module.exports = (options, context) => {
           }
         }
       })
+      const tags = Object.keys(tagMap).map((tag) => {
+        return {
+          tag,
+          articles: tagMap[tag],
+        }
+      })
       return [
         {
           name: `tags.js`,
-          content: `export default ${JSON.stringify(tagMap, null, 2)}`,
+          content: `export default ${JSON.stringify(tags, null, 2)}`,
         },
       ]
     },
