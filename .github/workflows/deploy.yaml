@@ -23,6 +23,7 @@ jobs:
           cd kengo-k.github.io-builder
           yarn
           yarn build
+          yarn gen
       # github-pagesにデプロイする
       - name: deploy site
         env:
