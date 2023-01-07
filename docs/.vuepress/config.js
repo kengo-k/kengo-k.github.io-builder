@@ -1,4 +1,4 @@
-const MyPlugin = require('../../plugins/my-plugin.js')
+const MyPlugin = require('../../build/my-plugin')
 
 module.exports = {
   postcss: {

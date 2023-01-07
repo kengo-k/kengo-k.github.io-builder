@@ -1,10 +1,33 @@
-const path = require('path')
+interface Option {}
+interface Page {
+  key: string
+  frontmatter: Frontmatter
+}
+interface Frontmatter {
+  tags: string[]
+}
+interface Context {
+  addPage: (pageInfo: PageInfo) => void
+  pages: Page[]
+}
+interface PageInfo {
+  permalink: string
+  frontmatter: {
+    layout: string
+    title: string
+  }
+  meta: {
+    pid: string
+    id: string
+  }
+}
 
-module.exports = (options, context) => {
+module.exports = (_: Option, context: Context) => {
   return {
     name: 'my-plugin',
+
     async ready() {
-      const pages = [
+      const pages: PageInfo[] = [
         {
           permalink: '/neko',
           frontmatter: {
@@ -48,6 +71,6 @@ module.exports = (options, context) => {
       ]
     },
 
-    enhanceAppFiles: [path.resolve(__dirname, './generate.js')],
+    //enhanceAppFiles: [path.resolve(__dirname, './generate.js')],
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-green-100">
     <ul>
       <li v-for="tagInfo in tags" :key="tagInfo.tag">
         {{ tagInfo.tag }}({{ tagInfo.articles.length }})
@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import tags from "../../../.temp/dynamic/tags"
 export default {
   data() {
