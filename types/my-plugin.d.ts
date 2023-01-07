@@ -22,3 +22,12 @@ interface PageInfo {
         id: string;
     };
 }
+declare const _default: (_: Option, context: Context) => {
+    name: string;
+    ready(): Promise<void>;
+    clientDynamicModules(): Promise<{
+        name: string;
+        content: string;
+    }[]>;
+};
+export default _default;

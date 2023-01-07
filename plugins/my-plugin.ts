@@ -22,7 +22,7 @@ interface PageInfo {
   }
 }
 
-module.exports = (_: Option, context: Context) => {
+export default (_: Option, context: Context) => {
   return {
     name: 'my-plugin',
 
