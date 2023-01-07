@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import tags from "../../../.temp/dynamic/tags"
+import tags from "../../../../generated/dynamic/tags"
 export default {
   data() {
     return {
