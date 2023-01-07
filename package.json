@@ -1,9 +1,9 @@
 {
   "name": "blog",
   "scripts": {
-    "dev": "vuepress dev docs",
     "build": "tsc",
-    "docs": "vuepress build docs"
+    "dev": "vuepress dev docs",
+    "gen": "vuepress build docs"
   },
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.2.17",
