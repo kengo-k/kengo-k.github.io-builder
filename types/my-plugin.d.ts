@@ -3,6 +3,8 @@ interface Option {
 interface Page {
     key: string;
     frontmatter: Frontmatter;
+    path: string;
+    title: string;
 }
 interface Frontmatter {
     tags: string[];
