@@ -6,6 +6,14 @@ export default {
   postcss: {
     plugins: [tailwindcss, autoprefixer],
   },
-  plugins: ['@vuepress/last-updated', MyPlugin],
+  plugins: [
+    [
+      'vuepress-plugin-typescript',
+      {
+        tsLoaderOptions: {},
+      },
+    ]['@vuepress/last-updated'],
+    [MyPlugin],
+  ],
   temp: 'generated',
 }

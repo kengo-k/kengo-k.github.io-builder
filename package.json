@@ -10,7 +10,8 @@
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "typescript": "^4.9.4",
-    "vuepress": "^1.9.7"
+    "vuepress": "^1.9.7",
+    "vuepress-plugin-typescript": "^0.3.1"
   },
   "license": "MIT",
   "version": "0.0.0"
