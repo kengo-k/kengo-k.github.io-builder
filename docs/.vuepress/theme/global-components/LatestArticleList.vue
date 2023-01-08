@@ -2,7 +2,7 @@
   <div class="bg-green-100">
     <ul>
       <li v-for="article in latest_articles" :key="article.path">
-        {{ article.path }}
+        <a :href="article.path">{{ article.path }}</a>
       </li>
     </ul>
   </div>
