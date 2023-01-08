@@ -11,9 +11,15 @@ interface Frontmatter {
   tags: string[]
 }
 
+interface DynamicModule {
+  name: string
+  content: string
+}
+
 interface Context {
   addPage: (pageInfo: PageInfo) => void
   pages: Page[]
+  dynamicModules?: DynamicModule[]
 }
 
 interface PageInfo {
@@ -23,8 +29,7 @@ interface PageInfo {
     title: string
   }
   meta: {
-    pid: string
-    id: string
+    article_keys?: string[]
   }
 }
 
@@ -36,40 +41,96 @@ interface ArticlesByTag {
 export default (_: Option, context: Context) => {
   return {
     name: 'my-plugin',
+    extendPageData(page: any) {
+      console.log('extend!')
+      if (page._meta != null) {
+        page.data = {
+          article_ids: page._meta.article_ids,
+        }
+      }
+      // page.xxx = 'HELLO'
+      // page.data = {}
+      // page.data.yyy = 'WORLD'
+      // if (page._meta != null) {
+      //   //Object.assign(page, { NEKO: 'NYA' })
+      //   //console.log('extend!!!!', page)
+      // }
+      console.log(page)
+    },
+    async additionalPages() {
+      console.log('additional!')
+      console.log('length: ', context.pages.length)
 
-    async ready() {
-      console.log('UHOOOOO', context.pages)
-      const pages: PageInfo[] = [
-        {
-          permalink: '/neko',
-          frontmatter: {
-            layout: 'IndexLayout',
-            title: 'test',
-          },
-          meta: {
-            pid: 'post',
-            id: 'post',
-          },
-        },
+      const pages = context.pages
+      const articles_map = generateArticlesMap(pages)
+      const latest_articles = generateLatestArticles(pages, 10)
+      const tags = generateTags(pages)
+
+      context.dynamicModules = [
+        { name: 'articles_map.js', content: generate(articles_map) },
+        { name: 'latest_articles.js', content: generate(latest_articles) },
+        { name: 'tags.js', content: generate(tags) },
       ]
-      await Promise.all(pages.map(async (page) => context.addPage(page)))
+
+      const tagPages = tags.map((t) => {
+        return {
+          // permalink: `/tags/${t.tag.toLowerCase()}.html`,
+          // frontmatter: {
+          //   layout: 'IndexLayout',
+          //   title: 'test',
+          // },
+          // meta: {
+          //   article_keys: t.articles,
+          // },
+          path: `/tags/${t.tag.toLowerCase()}.html`,
+          filePath: __dirname + '/../template/ArticleList.md',
+          meta: {
+            article_ids: t.articles,
+          },
+        }
+      })
+
+      return [...tagPages]
+
+      // // Note that VuePress doesn't have request library built-in
+      // // you need to install it yourself.
+      // const rp = require('request-promise')
+      // const content = await rp(
+      //   'https://raw.githubusercontent.com/vuejs/vuepress/master/CHANGELOG.md'
+      // )
+      // return [
+      //   {
+      //     path: '/changelog/',
+      //     content,
+      //   },
+      // ]
+      //return []
+    },
+    async ready() {
+      console.log('ready!!!')
+      //console.log('UHOOOOO', context.pages)
+
+      // const tagPages = tags.map((t) => {
+      //   return {
+      //     permalink: `/tags/${t.tag.toLowerCase()}.html`,
+      //     frontmatter: {
+      //       layout: 'IndexLayout',
+      //       title: 'test',
+      //     },
+      //     meta: {
+      //       article_keys: t.articles,
+      //     },
+      //   }
+      // })
+
+      // const additionalPages = [...tagPages]
+
+      // await Promise.all(
+      //   additionalPages.map(async (page) => context.addPage(page))
+      // )
     },
     async clientDynamicModules() {
-      const pages = context.pages
-      return [
-        {
-          name: 'articles_map.js',
-          content: generate(generateArticlesMap(pages)),
-        },
-        {
-          name: 'latest_articles.js',
-          content: generate(generateLatestArticles(pages, 10)),
-        },
-        {
-          name: 'tags.js',
-          content: generate(generateTags(pages)),
-        },
-      ]
+      return context.dynamicModules
     },
 
     //enhanceAppFiles: [path.resolve(__dirname, './generate.js')],

@@ -2,7 +2,7 @@
   <div class="bg-green-100">
     <ul>
       <li v-for="tagInfo in tags" :key="tagInfo.tag">
-        {{ tagInfo.tag }}({{ tagInfo.articles.length }})
+        <a :href="'/tags/' + tagInfo.tag.toLowerCase()"> {{ tagInfo.tag }}({{ tagInfo.articles.length }})</a>
       </li>
     </ul>
   </div>
