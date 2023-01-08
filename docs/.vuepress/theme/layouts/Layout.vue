@@ -1,21 +1,13 @@
 <template>
   <div class="m-20">
-    This is a Layout!
-    <GlobalComponent name="My Component" />
-    <HelloComponent name="My Component" />
     <Content />
   </div>
 </template>
 
 <script>
-import HelloComponent from "../components/HelloComponent.vue"
 
 export default {
   name: 'Layout',
-
-  components: {
-    HelloComponent
-  },
 
   data () {
     return {
