@@ -72,4 +72,10 @@ $ lxc stop default
 $ lxc delete default
 ```
 
+# ネットワークの一覧を表示する
+
+```
+$ lxc network list
+```
+
 # コンテナにDockerをインストールする
