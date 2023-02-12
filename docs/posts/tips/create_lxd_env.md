@@ -80,14 +80,19 @@ $ lxc network list
 
 # トラブルシューティング: コンテナから外部へつながらない
 
+```
+# sudo nft list ruleset
+```
+
+でDROPの設定が入っている(らしい)※nftがなにかもよくわかってない。参考: https://zenn.dev/tantan_tanuki/articles/9a68acd97c58d8
+
 知識がないので詳細が把握できていないが、コンテナ内で
 
 ```
-iptables -P FORWARD ACCEPT
+# sudo iptables -P FORWARD ACCEPT
 ```
 
 を実行することでコンテナから外部への接続できるようになった。
-
 
 # コンテナにDockerをインストールする
 
