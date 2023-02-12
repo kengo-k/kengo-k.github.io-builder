@@ -78,4 +78,17 @@ $ lxc delete default
 $ lxc network list
 ```
 
+# トラブルシューティング: コンテナから外部へつながらない
+
+知識がないので詳細が把握できていないが、コンテナ内で
+
+```
+iptables -P FORWARD ACCEPT
+```
+
+を実行することでコンテナから外部への接続できるようになった。
+
+
 # コンテナにDockerをインストールする
+
+TODO
