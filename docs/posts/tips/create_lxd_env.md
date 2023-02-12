@@ -62,3 +62,14 @@ $ lxc list
 $ lxc exec default bash
 root@default:~#
 ```
+
+# コンテナを削除する
+
+停止してから削除を実行する。
+
+```
+$ lxc stop default
+$ lxc delete default
+```
+
+# コンテナにDockerをインストールする
