@@ -40,10 +40,14 @@ Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]:
 # コンテナを作成する
 
 ```
-$ lxc launch ubuntu:22.04 default # ← 任意のコンテナ名
+$ lxc launch ubuntu:22.04 default \
+  -c security.nesting=true \
+  -c security.privileged=true
 Creating default
 Starting default
 ```
+
+ここでは任意のコンテナ名として`default`と指定している。`-c`オプションで渡している二つの引数は権限周りの設定でコンテナ内でdockerを実行するために指定している。
 
 # コンテナ一覧を表示する
 
@@ -79,6 +83,7 @@ $ lxc network list
 ```
 
 # トラブルシューティング: コンテナから外部へつながらない
+
 
 ```
 # sudo nft list ruleset
