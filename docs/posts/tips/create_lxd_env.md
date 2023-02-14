@@ -99,6 +99,30 @@ $ lxc network list
 
 を実行することでコンテナから外部への接続できるようになった。
 
+# コンテナをホストのネットワークに所属させる
+
+参考URL: https://mickey-happygolucky.hatenablog.com/entry/2023/01/08/231239
+
+```yaml
+network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    enp3s0:
+      dhcp4: no
+  bridges:
+    br0:
+      interfaces:
+        - enp3s0
+      dhcp4: yes
+      parameters:
+        forward-delay: 0
+        stp: no
+      optional: true
+```
+
+
+
 # コンテナにDockerをインストールする
 
 TODO
