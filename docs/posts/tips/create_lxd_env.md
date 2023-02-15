@@ -102,6 +102,7 @@ $ lxc network list
 # コンテナをホストのネットワークに所属させる
 
 参考URL: https://mickey-happygolucky.hatenablog.com/entry/2023/01/08/231239
+         https://www.waguri-soft.com/2020/05/29/lxd%E3%81%AE%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%A7%E5%9B%BA%E5%AE%9Aip%E3%82%92%E6%8C%AF%E3%82%8B/
 
 ```yaml
 network:
