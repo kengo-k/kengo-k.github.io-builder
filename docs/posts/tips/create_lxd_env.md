@@ -103,6 +103,9 @@ $ lxc network list
 
 参考URL: https://mickey-happygolucky.hatenablog.com/entry/2023/01/08/231239
          https://www.waguri-soft.com/2020/05/29/lxd%E3%81%AE%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%A7%E5%9B%BA%E5%AE%9Aip%E3%82%92%E6%8C%AF%E3%82%8B/
+         https://chat.openai.com/chat/eba711b5-9a06-4d44-baf8-39cc3262e9ec
+         https://chat.openai.com/chat/69c0c41c-6faa-47e9-a1b3-116f586686a5
+         https://chat.openai.com/chat/872b5fb6-525a-42c1-bcad-d7a69f642842
 
 ```yaml
 network:
