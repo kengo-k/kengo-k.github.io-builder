@@ -107,6 +107,7 @@ $ lxc network list
          https://chat.openai.com/chat/69c0c41c-6faa-47e9-a1b3-116f586686a5
          https://chat.openai.com/chat/872b5fb6-525a-42c1-bcad-d7a69f642842
          https://chat.openai.com/chat/eff9ad1d-9d77-400f-bc2b-a5e0097671bc
+         https://chat.openai.com/chat/a1403d75-b01a-4be8-9173-ea17c2af16ac
 
 
 ```yaml
