@@ -46,6 +46,14 @@ sudo iptables -L
 sudo nft list ruleset
 ```
 
+### iptables使用例
+
+#### pingを拒否する
+
+```
+sudo iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
+```
+
 ## ネットワークインターフェースについて
 
 ### ネットワークインターフェースの一覧を確認する
