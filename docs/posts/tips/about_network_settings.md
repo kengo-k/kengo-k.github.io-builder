@@ -24,6 +24,27 @@ nftablesは、iptablesの後継として登場した新しいLinuxファイア�
 
 ということのようだ。
 
+```
+sudo iptables -F
+sudo iptables -X
+sudo iptables -Z
+sudo nft flush ruleset
+```
+
+```
+sudo systemctl stop iptables
+sudo systemctl stop nftables
+```
+
+```
+sudo systemctl disable iptables
+sudo systemctl disable nftables
+```
+
+```
+sudo iptables -L
+sudo nft list ruleset
+```
 
 ## ネットワークインターフェースについて
 
