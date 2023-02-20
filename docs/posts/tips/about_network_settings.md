@@ -1,6 +1,6 @@
 # ネットワーク関連のTIPSをまとめるページ
 
-## ファイアウォール設定ツールについて
+## ファイアウォールについて
 
 Webページを検索すると`iptables`だけではなく`ufw`や`nftables`などを使用している例が見られる。違いがわかっていないので整理しておく。ChartGPTによると
 
@@ -26,26 +26,47 @@ nftablesは、iptablesの後継として登場した新しいLinuxファイア�
 
 Ubuntuでは20.04からデフォルトのファイアウォールとして`nftables`が設定されている。
 
+## ファイアウォールをクリアする方法
+
+ネットワークの問題に直面したときに最初に考えるのはファイアウォールに阻まれているかどうかを確認することである。そのためまずはファイアウォール設定をクリアする方法を確認しておく。
+
+### iptablesの場合
+
 ```
 sudo iptables -F
 sudo iptables -X
 sudo iptables -Z
+```
+
+### nftablesの場合
+
+```
 sudo nft flush ruleset
 ```
+
+### 設定がクリアされたか確認する
+
+以下コマンドで何も表示されないことを確認する
+
+```
+sudo iptables -L
+sudo nft list ruleset
+```
+
+## ファイアウォールを停止する方法
+
+そもそもサービスとしてのファイアウォール自体を止める方法は以下のように行う。`systemctl stop`でまずは停止する。
 
 ```
 sudo systemctl stop iptables
 sudo systemctl stop nftables
 ```
 
+続いて`systemctl disable`で無効化を行う。
+
 ```
 sudo systemctl disable iptables
 sudo systemctl disable nftables
-```
-
-```
-sudo iptables -L
-sudo nft list ruleset
 ```
 
 ### iptables使用例
@@ -55,6 +76,17 @@ sudo nft list ruleset
 ```
 sudo iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
 ```
+
+上記の設定をした後に設定を確認すると以下のように表示される。
+
+```
+$ sudo iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+DROP       icmp --  anywhere             anywhere             icmp echo-request
+```
+
+#### 特定のホストからのみpingを許可する
 
 ## ネットワークインターフェースについて
 
