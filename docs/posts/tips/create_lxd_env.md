@@ -133,3 +133,30 @@ network:
 # コンテナにDockerをインストールする
 
 TODO
+
+
+# LXDのイメージを作成しレジストリに登録する
+
+LXCイメージのアップロード先を設定する
+
+```
+lxc remote add images images.linuxcontainers.org
+```
+
+LXDイメージを作成する
+
+```
+lxc launch images:ubuntu/22.04 my-container
+lxc exec my-container -- apt-get update
+lxc exec my-container -- apt-get install -y nginx
+lxc exec my-container -- systemctl enable nginx
+```
+
+LXDイメージをエクスポートする
+
+```
+lxc image export my-container my-image.tar.gz
+```
+
+作成したイメージファイル(tarファイルのまま)をLXD Hubに登録する。
+
