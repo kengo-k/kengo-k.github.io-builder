@@ -135,28 +135,49 @@ network:
 TODO
 
 
-# LXDのイメージを作成しレジストリに登録する
+# LXDのイメージを作成し再利用する
 
-LXCイメージのアップロード先を設定する
+LXDコンテナに開発環境を構築して環境を再現可能な状態にしておく方法を確認する。
 
-```
-lxc remote add images images.linuxcontainers.org
-```
+## LXDコンテナに必要なセットアップを行う
 
-LXDイメージを作成する
+ここでは例として'nginx'のインストールを行うものとする。
 
 ```
-lxc launch images:ubuntu/22.04 my-container
-lxc exec my-container -- apt-get update
-lxc exec my-container -- apt-get install -y nginx
-lxc exec my-container -- systemctl enable nginx
+$ sudo apt-get install nginx
+ curl localhost
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+...以下省略...
 ```
 
-LXDイメージをエクスポートする
+nginxがインストールされていることを確認した状態でイメージをpublishする。
 
 ```
-lxc image export my-container my-image.tar.gz
+# 変更を保存する
+$ sudo lxc stop mycontainer
+$ sudo lxc publish mycontainer --alias myimage
 ```
 
-作成したイメージファイル(tarファイルのまま)をLXD Hubに登録する。
+コンテナを停止してから'lxc publish'コマンドでイメージを保存する。イメージ名にはランダムなIDが自動的に設定されるがわかりやすい名前を'--alias'オプションで指定することができる。イメージの一覧は下記のコマンドで確認できる。
 
+```
+$ lxc image list
+```
+
+作成した新しいイメージを使用してコンテンあを起動してみる
+
+```
+$ lxc launch myimage mycontainer
+$ lxc exec mycontainer bash
+root@mycontainer:~# curl localhost
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+...以下省略...
+```
+
+すでにnginxが起動されている状態になっていることを確認できた。
