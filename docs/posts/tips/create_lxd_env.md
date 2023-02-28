@@ -181,3 +181,22 @@ root@mycontainer:~# curl localhost
 ```
 
 すでにnginxが起動されている状態になっていることを確認できた。
+
+# LXDコンテナ内でdockerをインストールする際にエラーとなる
+
+```
+# dmesg
+dmesg: read kernel buffer failed: Operation not permitted
+```
+
+コンテナ内でdmesgを実行するとホストのカーネル情報を読み込みに行くがセキュリティ的な観点で読み取りが制限されているためにエラーとなってしまう模様。このエラーを回避するためにはホスト側でカーネル情報を読み込めるようにする必要がある。下記コマンドを実行する。
+
+```
+$ sudo sysctl kernel.dmesg_restrict=0
+```
+
+また起動時に上記の制限を外した状態にするには以下のコマンドを実行する。(※未確認)
+
+```
+$ sudo echo "sysctl kernel.dmesg_restrict=0" > /etc/sysctl.d/10-local.conf
+```
