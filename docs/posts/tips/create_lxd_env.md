@@ -200,3 +200,5 @@ $ sudo sysctl kernel.dmesg_restrict=0
 ```
 $ sudo echo "sysctl kernel.dmesg_restrict=0" > /etc/sysctl.d/10-local.conf
 ```
+
+追記: 上記のdmesgは多分関係ない・・・上のほうで書いている'lxc launch時のオプション設定をするだけでいけるはず'
