@@ -202,3 +202,24 @@ $ sudo echo "sysctl kernel.dmesg_restrict=0" > /etc/sysctl.d/10-local.conf
 ```
 
 追記: 上記のdmesgは多分関係ない・・・上のほうで書いている'lxc launch時のオプション設定をするだけでいけるはず'
+
+
+# cloud-init
+
+Dockerでイメージをビルドする際にDockerfileを使用するようにLXDコンテナを初期化する場合は`cloud-init`を使用することができる。`lxc launch`する際にオプションを指定することで`cloud-init`による初期化処理を実行できる。まずは`cloud-init.yaml`を下記の内容で作成する。
+
+```yaml
+runcmd:
+  - |
+    #!/bin/sh
+    echo "Hello"
+    echo "World"
+```
+
+`cloud-init.yaml`を作成したら下記のコマンドを実行しコンテナを起動し、指定した内容で初期化を行う。
+
+```
+$ lxc launch ubuntu:22.04 default --config=user.user-data="$(cat cloud-init.yaml)"
+```
+
+cloud-init内で実行された処理は`/var/log/cloud-init-output.log`内で確認することが可能。
