@@ -1,3 +1,16 @@
+# LXDを使用した開発環境構築
+
+## 目標
+
+## 前準備
+
+### git/git-lfsのインストール
+
+```
+$ sudo apt-get install git
+$ sudo apt-get install git-lfs
+```
+
 # LXDのインストール
 
 - 環境: Ubuntu22.04
@@ -211,7 +224,6 @@ Dockerでイメージをビルドする際にDockerfileを使用するようにL
 ```yaml
 runcmd:
   - |
-    #!/bin/sh
     echo "Hello"
     echo "World"
 ```
