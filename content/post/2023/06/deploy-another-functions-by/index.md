@@ -1,8 +1,8 @@
 ---
 title: 'Lambdaだけじゃない！VercelのFunctionsを使おう'
-date: '2023-06-04'
+date: '2023-06-03'
 tags:
-  - vercel
+  - cloud
   - serverless framework
 summary: "あとで書く"
 

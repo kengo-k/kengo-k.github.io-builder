@@ -3,7 +3,6 @@ title: '効率アップ！Serverlessでお手軽にAWS Lambdaをデプロイ'
 date: '2023-06-02'
 tags:
   - aws
-  - lambda
   - serverless framework
 
 summary: "今さらですがAWS Lambdaに入門します。まずはlocalstackを使ったローカル環境での動作確認方法から始めて実際に本番環境へデプロイするまでを試してみました。ついでに気になるLambdaの課金体系についても調べました。" # For the post in lists.
