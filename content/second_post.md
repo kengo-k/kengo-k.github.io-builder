@@ -1,6 +1,7 @@
 +++
 title = "Second post"
 date = 2018-07-02
+draft = true
 [taxonomies]
 categories = ["Even"]
 tags = ["placeholder posts", "prime-number posts"]

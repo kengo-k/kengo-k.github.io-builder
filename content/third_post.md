@@ -1,6 +1,7 @@
 +++
 title = "Third post"
 date = 2018-07-03
+draft = true
 category = "Odd"
 tags = [
   "placeholder posts",
