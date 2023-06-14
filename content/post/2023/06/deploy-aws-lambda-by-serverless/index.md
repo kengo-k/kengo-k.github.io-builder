@@ -1,6 +1,6 @@
 ---
 title: '効率アップ！Serverlessでお手軽にAWS Lambdaをデプロイ'
-date: '2023-06-01'
+date: '2023-06-02'
 tags:
   - aws
   - lambda
