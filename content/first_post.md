@@ -1,23 +1,12 @@
 +++
-title = "First post"
+title = "ブログをはじめる"
 date = 2018-07-01
 
 [taxonomies]
-categories = ["Odd"]
-tags = ["placeholder posts", "tag1"]
+categories = ["posts"]
+tags = ["misc"]
 +++
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-in culpa qui officia deserunt mollit anim id est laborum.
+
+もう何度挫折したか数えきれないですが懲りずにブログを始めます。アウトプットできる人間になりたいという思いをどうしても捨てきれないということ、それから最近のブームに乗っかってAIの力を借りることができれば文章下手くそな自分でもそこそこ戦えるんじゃないかなと目論んだからです。内容については主に技術系の記事を書いていきます。よろしくお願いします。
 
 <!-- more -->
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-in culpa qui officia deserunt mollit anim id est laborum.
