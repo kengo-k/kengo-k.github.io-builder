@@ -1,4 +1,1 @@
-node_modules
-docs/.vuepress/dist
-generated
-build
+public
