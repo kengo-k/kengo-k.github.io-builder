@@ -2,7 +2,7 @@
 title: 'ブログをはじめることにしました'
 date: '2023-06-01'
 tags:
-  - misc
+  - blog
 
 usePageBundles: true
 ---
