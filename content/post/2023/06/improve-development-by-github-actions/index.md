@@ -4,6 +4,7 @@ date: '2023-06-12'
 tags:
   - cicd
 summary: "あとで書く"
+draft: true
 
 usePageBundles: true
 ---
