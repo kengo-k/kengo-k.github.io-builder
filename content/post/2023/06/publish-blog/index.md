@@ -3,7 +3,7 @@ title: 'ついにブログを外部に公開！GitHub ActionsでPagesに自動�
 date: '2023-06-10'
 tags:
   - blog
-  - github
+  - cicd
 summary: "あとで書く"
 
 usePageBundles: true

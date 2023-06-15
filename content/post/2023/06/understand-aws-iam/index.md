@@ -2,7 +2,7 @@
 title: '基本を押さえる！IAMロール？IAMユーザ？AWSのセキュリティを理解する'
 date: '2023-06-04'
 tags:
-  - aws
+  - cloud
 summary: "あとで書く"
 
 usePageBundles: true
