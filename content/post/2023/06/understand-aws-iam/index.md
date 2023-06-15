@@ -1,5 +1,5 @@
 ---
-title: 'IAMロール？IAMユーザ？AWSのセキュリティを理解する'
+title: '基本を押さえる！IAMロール？IAMユーザ？AWSのセキュリティを理解する'
 date: '2023-06-04'
 tags:
   - aws

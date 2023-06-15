@@ -1,5 +1,5 @@
 ---
-title: 'Lambdaだけじゃない！VercelのFunctionsを使おう'
+title: 'Lambdaだけじゃないよ！VercelのFunctionsを使おう'
 date: '2023-06-03'
 tags:
   - cloud
