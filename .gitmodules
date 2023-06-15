@@ -1,0 +1,3 @@
+[submodule "themes/custom-hugo-theme-clarity"]
+	path = themes/custom-hugo-theme-clarity
+	url = https://github.com/kengo-k/custom-hugo-theme-clarity.git
