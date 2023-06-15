@@ -110,7 +110,7 @@ languageMenuName = "🌐"
 # utterancesIssueTerm = "pathname" # Default: pathname
 
 # Maximum number of recent posts. (default: 8)
-# numberOfRecentPosts = 8
+numberOfRecentPosts = 10
 
 # Maximum number of featured posts. (default: 8)
 # numberOfFeaturedPosts = 8
