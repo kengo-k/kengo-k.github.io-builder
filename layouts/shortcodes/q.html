@@ -1,0 +1,8 @@
+{{- $lines := split .Inner "\n" -}}
+<blockquote>
+{{- range $lines -}}
+    {{- if ne . "" -}}
+      {{ . }}<br />
+    {{- end -}}
+{{- end -}}
+</blockquote>
