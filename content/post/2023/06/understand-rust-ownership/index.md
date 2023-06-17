@@ -3,9 +3,10 @@ title: 'プログラミング初心者じゃないけどRustむずくない？�
 date: '2023-06-08'
 tags:
   - rust
+  - programming
 summary: "あとで書く"
 
-usePageBundles: true
+thumbnail: rust
 ---
 
 あとでかく

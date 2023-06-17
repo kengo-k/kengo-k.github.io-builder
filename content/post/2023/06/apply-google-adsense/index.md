@@ -5,7 +5,7 @@ tags:
   - blog
 summary: "あとで書く"
 
-usePageBundles: true
+thumbnail: blog
 ---
 
 あとでかく

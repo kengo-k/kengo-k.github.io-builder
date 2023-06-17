@@ -5,7 +5,7 @@ tags:
   - ai
 summary: "あとで書く"
 
-usePageBundles: true
+thumbnail: ai
 ---
 
 あとでかく
