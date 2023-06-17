@@ -3,10 +3,10 @@ title: 'Lambdaだけじゃないよ！VercelのFunctionsを使おう'
 date: '2023-06-03'
 tags:
   - cloud
-  - serverless framework
+  - devops
 summary: "あとで書く"
 
-usePageBundles: true
+thumbnail: cloud2
 ---
 
 あとでかく
