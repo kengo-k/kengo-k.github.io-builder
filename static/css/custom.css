@@ -1,3 +1,14 @@
+ol {
+  counter-reset: item;
+}
+ol li {
+  display: block;
+}
+ol li:before {
+  content: counters(item, "-") ". ";
+  counter-increment: item;
+}
+
 @font-face {
   font-family: 'SatsukiGendaiMincho-M';
   src: url('/fonts/SatsukiGendaiMincho-M.woff2') format('woff2');
