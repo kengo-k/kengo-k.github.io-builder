@@ -9,6 +9,10 @@ ol li:before {
   counter-increment: item;
 }
 
+.post_item.draft {
+  background-color: #FDF5E6;
+}
+
 @font-face {
   font-family: 'SatsukiGendaiMincho-M';
   src: url('/fonts/SatsukiGendaiMincho-M.woff2') format('woff2');
