@@ -7,6 +7,8 @@ summary: "あとで書く"
 
 thumbnail: blog
 featureImage: "./top.jpg"
+
+draft: true
 ---
 
 あとでかく

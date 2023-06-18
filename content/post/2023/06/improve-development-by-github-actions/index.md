@@ -9,6 +9,8 @@ draft: true
 
 thumbnail: devops
 featureImage: "./top.jpg"
+
+draft: true
 ---
 
 あとでかく

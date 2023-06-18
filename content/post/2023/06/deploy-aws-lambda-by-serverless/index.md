@@ -10,6 +10,8 @@ summary: "Serverless Frameworkを使ってAWS Lambdaをデプロイする方法�
 
 thumbnail: aws
 featureImage: "./top.jpg"
+
+draft: true
 ---
 
 ### AWS LambdaとAPI Gatewayを手動で設定

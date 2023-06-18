@@ -8,6 +8,8 @@ summary: "あとで書く"
 
 thumbnail: rust
 featureImage: "./top.jpg"
+
+draft: true
 ---
 
 あとでかく

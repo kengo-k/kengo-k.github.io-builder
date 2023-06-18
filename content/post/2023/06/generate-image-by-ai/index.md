@@ -7,6 +7,8 @@ summary: "あとで書く"
 
 thumbnail: ai
 featureImage: "./top.jpg"
+
+draft: true
 ---
 
 あとでかく
