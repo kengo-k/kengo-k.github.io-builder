@@ -2,14 +2,39 @@
 title: 'Serverlessで効率アップ！AWS Lambdaを簡単デプロイ'
 date: '2023-06-02'
 tags:
+  - aws
   - cloud
-  - cicd
+  - devops
 
-summary: "今さらですがAWS Lambdaに入門します。まずはlocalstackを使ったローカル環境での動作確認方法から始めて実際に本番環境へデプロイするまでを試してみました。ついでに気になるLambdaの課金体系についても調べました。" # For the post in lists.
+summary: "Serverless Frameworkを使ってAWS Lambdaをデプロイする方法を調べました。まずはAWS Management Consoleから手動でデプロイを行い、同じことをServerless Frameworkにより実現します。最後にlocalstackを使ったローカル環境での動作確認の方法までを試してみました。ついでに気になるLambdaの課金体系についても調べました。"
 
-usePageBundles: true
-
+thumbnail: aws
+featureImage: "./top.jpg"
 ---
+
+### AWS LambdaとAPI Gatewayを手動で設定
+
+まずは、AWS LambdaとAPI Gatewayを手動で設定してみましょう。
+
+#### Lambda 関数の作成
+
+- AWS マネージメントコンソールにログインし、「Lambda」を検索し、選択します。
+- 「関数の作成」ボタンをクリックします。
+- 「関数の作成」を選択し、以下の設定を行います：
+  - 関数名: 任意の名前を入力します（例："myFirstLambda"）。
+  - ランタイム: 使用したいプログラミング言語を選択します（例："Node.js 14.x"）。
+- 「関数の作成」ボタンをクリックします。
+
+#### API Gateway の設定
+
+- AWS マネージメントコンソールに戻り、「API Gateway」を検索し、選択します。
+- 「HTTP API」を選択し、「ビルド」をクリックします。
+- 以下の設定を行います：
+  - API 名: 任意の名前を入力します（例："myAPIGateway"）。
+  - ルートの作成: 「/myFirstLambda」を入力します。
+  - メソッド: 「GET」を選択します。
+  - 統合先: 先ほど作成したLambda 関数の名前（"myFirstLambda"）を入力します。
+- 次へ」をクリックし、レビュー画面で設定内容を確認した後、「作成」をクリックします。
 
 [Page bundles](https://gohugo.io/content-management/page-bundles/) are an optional way to [organize page resources](https://gohugo.io/content-management/page-resources/) within Hugo.
 

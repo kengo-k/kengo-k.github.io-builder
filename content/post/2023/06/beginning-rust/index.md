@@ -1,5 +1,5 @@
 ---
-title: 'そろそろRustデビュー目指すか・・・開発環境作ってHelloWorld(+α)する！'
+title: 'そろそろRustデビュー目指すか・・・開発環境を作ってHelloWorld +αする！'
 date: '2023-06-07'
 tags:
   - rust

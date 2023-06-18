@@ -7,6 +7,7 @@ tags:
 summary: "あとで書く"
 
 thumbnail: ai
+featureImage: "./top.jpg"
 ---
 
 あとでかく
