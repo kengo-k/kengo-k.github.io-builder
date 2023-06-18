@@ -6,6 +6,7 @@ tags:
 summary: "あとで書く"
 
 thumbnail: blog
+featureImage: "./top.jpg"
 ---
 
 あとでかく

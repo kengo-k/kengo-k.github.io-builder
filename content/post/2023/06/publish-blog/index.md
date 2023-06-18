@@ -7,6 +7,7 @@ tags:
 summary: "あとで書く"
 
 thumbnail: devops
+featureImage: "./top.jpg"
 ---
 
 あとでかく

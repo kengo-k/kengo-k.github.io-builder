@@ -7,6 +7,7 @@ tags:
 summary: "あとで書く"
 
 thumbnail: rust
+featureImage: "./top.jpg"
 ---
 
 あとでかく

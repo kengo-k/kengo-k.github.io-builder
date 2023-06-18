@@ -7,6 +7,7 @@ tags:
 summary: "あとで書く"
 
 thumbnail: cloud2
+featureImage: "./top.jpg"
 ---
 
 あとでかく

@@ -22,3 +22,6 @@ series = "series"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
+
+[markup.goldmark.parser.attribute]
+block = true

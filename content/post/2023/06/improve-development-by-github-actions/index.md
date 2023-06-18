@@ -8,7 +8,7 @@ summary: "GitHub Actionsを使いこなして開発効率をUPを目指します
 draft: true
 
 thumbnail: devops
-
+featureImage: "./top.jpg"
 ---
 
 あとでかく
