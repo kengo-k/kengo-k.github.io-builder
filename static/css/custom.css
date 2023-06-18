@@ -35,3 +35,22 @@
   font-family: 'SatsukiGendaiMincho-M';
   font-size: 1.0rem;
 }
+
+.about h2,
+.about h3,
+.about h4 {
+  font-family: "Saira Extra Condensed";
+}
+
+.about h2 {
+  font-size: 4rem;
+}
+
+.about h3 {
+  font-size: 2rem;
+  color: gray;
+}
+
+.about ul {
+  font-family: "Saira Extra Condensed";
+}
