@@ -13,6 +13,7 @@ jobs:
         with:
           repository: kengo-k/kengo-k.github.io-builder
           path: source
+          submodules: recursive
 
       - name: Install Hugo
         run: |
