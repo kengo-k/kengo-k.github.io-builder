@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: kengo-k/kengo-k.github.io
-          token: ${{ secrets.DEPLOY_SECRET_KEY }}
+          token: ${{ secrets.DEPLOY_SECRETS_KEY }}
           path: target
 
       - name: Preserve CNAME
