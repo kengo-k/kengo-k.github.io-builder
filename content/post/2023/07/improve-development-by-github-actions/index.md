@@ -1,6 +1,6 @@
 ---
 title: '生産性大幅UP！？GitHub Actionsで色々自動化する！'
-date: '2023-06-12'
+date: '2023-07-15'
 tags:
   - devops
   - github

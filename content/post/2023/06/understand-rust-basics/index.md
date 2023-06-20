@@ -1,6 +1,6 @@
 ---
-title: 'プログラミング初心者じゃないけどRustむずくない？所有権についてまとめる！'
-date: '2023-06-17'
+title: 'Rustの言語仕様でパッと見わからなかったところを調べる！！！(with ChatGPT)'
+date: '2023-06-10'
 tags:
   - rust
   - programming

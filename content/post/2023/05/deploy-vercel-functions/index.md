@@ -1,6 +1,6 @@
 ---
 title: 'Lambdaだけじゃないよ！VercelのFunctionsを使おう'
-date: '2023-06-03'
+date: '2023-05-13'
 tags:
   - cloud
   - devops

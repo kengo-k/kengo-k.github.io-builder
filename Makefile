@@ -1,5 +1,5 @@
 dev:
-	hugo -D serve
+	hugo -D -F serve
 
 build:
 	hugo

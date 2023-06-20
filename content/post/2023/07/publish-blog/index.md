@@ -1,6 +1,6 @@
 ---
 title: 'ついにブログを外部に公開！GitHub ActionsでPagesに自動デプロイする！！'
-date: '2023-06-10'
+date: '2023-07-01'
 tags:
   - devops
   - github

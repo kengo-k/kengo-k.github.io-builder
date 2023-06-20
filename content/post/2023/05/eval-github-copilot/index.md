@@ -1,6 +1,6 @@
 ---
 title: 'なんか色々すごいらしい？巷で評判のGitHub Copilotを試す！'
-date: '2023-06-05'
+date: '2023-05-20'
 tags:
   - ai
   - github
