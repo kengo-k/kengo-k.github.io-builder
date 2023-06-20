@@ -8,6 +8,8 @@ summary: "Rust入門をやります。みなさんは新しいプログラミン
 
 thumbnail: "rust"
 featureImage: "./top.jpg"
+
+draft: true
 ---
 
 
