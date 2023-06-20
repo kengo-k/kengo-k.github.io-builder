@@ -35,7 +35,9 @@ jobs:
 
       - name: Preserve CNAME
         run: |
-          mv target/CNAME CNAME
+          if [ -f target/CNAME ]; then
+              mv target/CNAME CNAME
+          fi
 
       - name: Copy artifacts
         run: |
@@ -44,7 +46,9 @@ jobs:
 
       - name: Restore CNAME
         run: |
-          mv CNAME target/CNAME
+          if [ -f CNAME ]; then
+            mv CNAME target/CNAME
+          fi
 
       - name: Deploy
         run: |
