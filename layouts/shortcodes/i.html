@@ -1,0 +1,37 @@
+{{ $prefix := .Get 0 }}
+{{ $method := .Get 1 }}
+{{ $width := .Get 2 }}
+{{ $height := .Get 3 }}
+{{ $size := "" }}
+{{ if and (ne $width "") (eq $height "") }}
+  {{ $size = printf "%dx webp" $width }}
+{{ end }}
+{{ if and (eq $width "") (ne $height "") }}
+  {{ $size = printf "%dx webp" $height }}
+{{ end }}
+{{ if and (ne $width "") (ne $height "") }}
+  {{ $size = printf "%dx%d webp" $width $height }}
+{{ end }}
+{{ $paths := split .Page.File "/" }}
+{{ $dir := delimit (first (sub (len $paths) 1) $paths) "/" }}
+{{ $dir := printf "content/%s" $dir}}
+{{ $files := readDir $dir }}
+{{ $resized := 0 }}
+{{ range $files }}
+  {{ if hasPrefix .Name $prefix }}
+    {{ $img := $.Page.Resources.Get .Name }}
+    {{ if eq $method "resize" }}
+      {{ $resized = $img.Resize $size }}
+    {{ end }}
+    {{ if eq $method "crop" }}
+      {{ $resized = $img.Crop $size }}
+    {{ end }}
+    {{ if eq $method "fill" }}
+      {{ $resized = $img.Fill $size }}
+    {{ end }}
+    {{ if eq $method "fit" }}
+      {{ $resized = $img.Fit $size }}
+    {{ end }}
+    <img src="{{ $resized.RelPermalink }}" width="{{ $resized.Width }}" height="{{ $resized.Height }}">
+  {{ end }}
+{{ end }}
