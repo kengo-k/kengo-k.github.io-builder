@@ -1,25 +1,40 @@
-{{ $prefix := .Get 0 }}
-{{ $method := .Get 1 }}
-{{ $width := .Get 2 }}
-{{ $height := .Get 3 }}
+<!-- 引数を定義 -->
+{{ $prefix := .Get "prefix" }}
+{{ $method := .Get "method" }}
+{{ $width := .Get "width" }}
+{{ $height := .Get "height" }}
+{{ $anchor := .Get "anchor"}}
+
+<!-- 引数に基づいて$sizeを設定する -->
 {{ $size := "" }}
 {{ if and (ne $width "") (eq $height "") }}
-  {{ $size = printf "%dx webp" $width }}
+  {{ $size = printf "%dx webp q50" $width }}
 {{ end }}
 {{ if and (eq $width "") (ne $height "") }}
-  {{ $size = printf "%dx webp" $height }}
+  {{ $size = printf "%dx webp q50" $height }}
 {{ end }}
 {{ if and (ne $width "") (ne $height "") }}
-  {{ $size = printf "%dx%d webp" $width $height }}
+  {{ $size = printf "%dx%d webp q50" $width $height }}
 {{ end }}
+{{ if (ne $anchor "") }}
+  {{ $size = printf "%s %s" $size $anchor }}
+{{ end }}
+
+<!-- 検索対象ディレクトリを取得 -->
 {{ $paths := split .Page.File "/" }}
 {{ $dir := delimit (first (sub (len $paths) 1) $paths) "/" }}
 {{ $dir := printf "content/%s" $dir}}
-{{ $files := readDir $dir }}
+
+<!-- リサイズ実行後の画像オブジェクトを設定する変数 -->
 {{ $resized := 0 }}
+
+<!-- 検索対象ディレクトリ内のファイルをループする -->
+{{ $files := readDir $dir }}
 {{ range $files }}
+  <!-- 引数$prefixと先頭文字が一致するファイルの場合処理する -->
   {{ if hasPrefix .Name $prefix }}
     {{ $img := $.Page.Resources.Get .Name }}
+    <!-- 引数$methodで指定された値に応じて画像処理メソッドを実行する -->
     {{ if eq $method "resize" }}
       {{ $resized = $img.Resize $size }}
     {{ end }}
