@@ -1,0 +1,8 @@
+<div style="padding: 5px; border: 1px solid black;">
+  Hello, World!!
+  <ul>
+    <li>Site Title: {{ with .Site }}{{ .Title }}{{ end }}</li>
+    <li>Page Title: {{ with .Page }}{{ .Title }}{{ end }}</li>
+    <li>Tags: {{ range .Page.Params.tags }} {{ . }} {{ end }}</li>
+  </ul>
+</div>

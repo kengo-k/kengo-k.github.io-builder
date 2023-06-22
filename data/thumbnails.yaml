@@ -12,6 +12,8 @@
   path: /images/thumbnails/devops.svg
 - key: github
   path: /images/thumbnails/github.svg
+- key: golang
+  path: /images/thumbnails/golang.svg
 - key: rust
   path: /images/thumbnails/rust.svg
 - key: vscode
