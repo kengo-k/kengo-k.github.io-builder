@@ -232,7 +232,7 @@ JSONエディターに以下の内容のJSONを設定します。
                 "iam:DeleteVirtualMFADevice",
                 "iam:ListVirtualMFADevices"
             ],
-            "Resource": "arn:aws:iam::<account-id>:mfa/${aws:username}"
+            "Resource": "arn:aws:iam::<account-id>:mfa/*"
         },
         {
             "Effect": "Allow",
