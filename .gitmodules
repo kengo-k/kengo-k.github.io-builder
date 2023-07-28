@@ -1,0 +1,3 @@
+[submodule "themes/custom-hugo-theme"]
+	path = themes/custom-hugo-theme
+	url = github:kengo-k/custom-hugo-theme
