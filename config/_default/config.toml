@@ -8,7 +8,7 @@ paginate = 3
 theme = "custom-hugo-theme-clarity"
 disqusShortname = ""
 
-DefaultContentLanguage = "en"
+DefaultContentLanguage = "ja"
 
 [taxonomies]
 category = "categories"
