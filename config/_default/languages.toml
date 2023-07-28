@@ -1,6 +1,11 @@
+[ja]
+  title = "Just Plain Notes"
+  LanguageName = "Japanese"
+  weight = 1
+
 [en]
   title = "Just Plain Notes"
   LanguageName = "English"
-  weight = 1
+  weight = 2
 
   # tip: assign the default language the lowest Weight
